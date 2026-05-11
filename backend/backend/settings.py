@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+# Load the .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%+64p6y2xm8+$hou&$vc&u2&ghpf)x%n(%ij(gb^q86&1s&3%2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -82,11 +87,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-import os
-from dotenv import load_dotenv
 
-# Load the .env file
-load_dotenv()
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
@@ -171,12 +172,18 @@ CLOUDINARY_STORAGE = {
 
 # Set Cloudinary as the default storage for media files
 # Replace the old DEFAULT_FILE_STORAGE line with this:
+# settings.py
+
+# Add this line to satisfy the cloudinary-storage library
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticCloudinaryStorage'
+
+# Keep your existing STORAGES as well
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "cloudinary_storage.storage.StaticCloudinaryStorage",
     },
 }
 
