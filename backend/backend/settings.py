@@ -63,7 +63,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'pink-line-n7oy3qkk1-mubeena-s-projects.vercel.app',
+    "https://pink-line-n7oy3qkk1-mubeena-s-projects.vercel.app",
     "http://localhost:5173", 
     "http://127.0.0.1:5173",
 ]
