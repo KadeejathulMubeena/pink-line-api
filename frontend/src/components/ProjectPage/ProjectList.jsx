@@ -11,7 +11,7 @@ function ProjectList() {
     // Fetch data from Django
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/projects/');
+        const response = await axios.get('https://pink-line-api-7.onrender.com/api/projects/');
         setProjects(response.data);
         setLoading(false);
       } catch (error) {
@@ -29,8 +29,8 @@ function ProjectList() {
   };
 
   if (loading) return (
-                      <div className="flex items-center justify-center gap-3 pt-26">
-                        <div className="w-5 h-5 border-3 border-tg-blue/40 border-t-tg-blue rounded-full animate-spin"></div>
+                      <div className="flex items-center justify-center gap-3">
+                        <div className="w-5 h-5 border-3 border-tg-blue/20 border-t-tg-blue rounded-full animate-spin"></div>
                             Loading Projects...
                     </div>);
 

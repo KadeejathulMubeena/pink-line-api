@@ -9,7 +9,7 @@ function AdminRedirect() {
  useEffect(() => {
   const timer = setTimeout(() => {
     
-    window.open("http://127.0.0.1:8000/admin/", "_blank");
+    window.open("https://pink-line-api-7.onrender.com/admin/", "_blank");
 
     navigate('/'); 
   }, 1000);

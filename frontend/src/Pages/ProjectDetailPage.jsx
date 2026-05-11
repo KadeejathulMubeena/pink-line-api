@@ -19,10 +19,10 @@ function ProjectDetailPage() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const detailRes = await axios.get(`http://127.0.0.1:8000/api/projects/${projectSlug}/`);
+        const detailRes = await axios.get(`https://pink-line-api-7.onrender.com/api/projects/${projectSlug}/`);
         setProject(detailRes.data);
 
-        const listRes = await axios.get(`http://127.0.0.1:8000/api/projects/`);
+        const listRes = await axios.get(`https://pink-line-api-7.onrender.com/api/projects/`);
         setAllProjects(listRes.data);
 
         setLoading(false);

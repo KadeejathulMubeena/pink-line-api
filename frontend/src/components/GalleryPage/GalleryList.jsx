@@ -23,7 +23,7 @@ function GalleryList() {
     
     const fetchAllProjectImages = async () => {
       try {
-        const res = await axios.get('http://127.0.0.1:8000/api/projects/');
+        const res = await axios.get('https://pink-line-api-7.onrender.com/api/projects/');
         const allImages = [];
         res.data.forEach(project => {
           if (project.hero_image) allImages.push({ url: project.hero_image, title: project.title });
