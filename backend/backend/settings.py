@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-%+64p6y2xm8+$hou&$vc&u2&ghpf)x%n(%ij(gb^q86&1s&3%2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pink-line-api-5.onrender.com','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['pink-line-api-5.onrender.com','127.0.0.1:8000','localhost']
 
 
 # Application definition
