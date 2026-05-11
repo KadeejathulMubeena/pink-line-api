@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-tg-blue: #00B2FF;
+  --color-tg-black: #121212;
+
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom Scrollbar for Pink Line Project */
+@layer base {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px; 
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f8fafc; 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #00B2FF; 
+    border-radius: 10px;
+    border: 2px solid #f8fafc;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #004488; 
+  }
+
+  /* Support for Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #00B2FF #f8fafc;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slidedown {
+  animation: slideDown 0.5s ease forwards;
+}
+
+@layer utilities {
+  .animate-success-pop {
+    animation: success-pop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  }
+
+  @keyframes success-pop {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
