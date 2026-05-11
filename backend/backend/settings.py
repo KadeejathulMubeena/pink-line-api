@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-%+64p6y2xm8+$hou&$vc&u2&ghpf)x%n(%ij(gb^q86&1s&3%2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pink-line-api-5.onrender.com','127.0.0.1:8000','localhost']
+ALLOWED_HOSTS = ['pink-line-api-5.onrender.com']
 
 
 # Application definition
@@ -92,16 +92,25 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ.get('name'),
+#         'USER': os.environ.get('user'),
+#         'PASSWORD': os.environ.get('password'),
+#         'HOST': os.environ.get('host'),
+#         'PORT': os.environ.get('port'),
+#     }
+# }
+
+import dj_database_url
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('name'),
-        'USER': os.environ.get('user'),
-        'PASSWORD': os.environ.get('password'),
-        'HOST': os.environ.get('host'),
-        'PORT': os.environ.get('port'),
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600
+    )
 }
+
 
 # settings.py
 
